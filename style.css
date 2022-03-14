@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:regular,700);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:regular,700);
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #d9d0bf;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1440px;
+  min-height: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  background-color: #363940;
+  width: 1440px;
+  height: 80px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-button {
+  height: 35px;
+  width: 60px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  background-color: #363940;
+  border: 2px solid #d9d0bf;
+  color: #d9d0bf;
+  font-size: 15px;
+}
+
+.nav-button:hover {
+  color: #ffffff;
+}
+
+.enter {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.enter-button {
+  height: 35px;
+  width: 70px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  background-color: #363940;
+  border: 2px solid #d9d0bf;
+  color: #d9d0bf;
+  font-size: 15px;
+}
+
+.enter-button:hover {
+  color: #ffffff;
+}
+
+.header-logo {
+  width: 50px;
+  height: 40px;
+  display: block;
+  filter: invert(91%) sepia(2%) saturate(1346%) hue-rotate(2deg) brightness(95%)
+    contrast(86%);
+  margin: 25px 0px;
+  background: url("./assets/svg/logo.svg") no-repeat;
+}
+
+.header-logo:hover {
+  filter: invert(99%) sepia(0%) saturate(2%) hue-rotate(317deg) brightness(117%)
+    contrast(100%);
+}
+
+main {
+  padding-bottom: 60px;
+}
+
+.footer {
+  display: flex;
+  background-color: #363940;
+  width: 1440px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.footer-container {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  gap: 25px;
+}
+
+.footer-text {
+  color: #d9d0bf;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #d9d0bf;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
