@@ -19,8 +19,10 @@
                         <button class="nav-button">Year</button>
                     </nav>
                     <div class="enter">
-                        <button class="enter-button">Sign up</button>
-                        <button class="enter-button">Log in</button>
+                        <button class="enter-button" onclick="window.location.href = '#sign-up'">
+                            Sign up</button>
+                        <button class="enter-button" onclick="window.location.href = '#sign-in'">
+                            Sign in</button>
                     </div>
                     
                 </div>
@@ -28,8 +30,43 @@
 
         </header>
         <main>
-            <div class="container">
-                <h1>HELLO</h1>
+            <div class="main-container">
+                <aside class="aside">
+                    <button class="aside-button" onclick="window.location.href = '#add-new'">Add new</button>
+                    <hr class="calendar-hr">
+                    <div class="themes">
+                        <h4 class="themes-title">Themes</h4>
+                        <button class="add-theme-btn" onclick="window.location.href = '#add-theme'">+</button>
+                    </div>
+                </aside>
+                <div class="calendar-container">
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" onclick="previous()"><</button>
+                        <h3 class="calendar-header" id="monthAndYear">March 2022</h3>
+                        <button class="calendar-nav-btn" onclick="next()">></button>
+                    </div>
+                    <hr class="calendar-hr">
+                    <div class="days">
+                        <table class="calendar-table" id="calendar">
+                            <thead class="calendar-head">
+                            <tr>
+                                
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                            </thead>
+
+                            <tbody id="calendar-body">
+                                
+                            </tbody>
+                            
+                    </div>
+                </div>
             </div>
             
         </main>
@@ -41,6 +78,82 @@
                 </div>
             </div>
         </footer>
+    </div>
+    <script src="scripts.js"></script>
+    <div id="sign-up" class="popup">
+        <a href="#" class="popup-area"></a>
+        <div class="popup-body">
+            <div class="popup-content">
+                <a href="#" class="popup-close">X</a>
+                <form action="" name="sign_up" class="popup-sign-up">
+                    <lable class="popup-lable">Name:</lable>
+                    <input class="popup-input" type="text">
+                    <lable class="popup-lable">Login:</lable>
+                    <input type="text" class="popup-input">
+                    <lable class="popup-lable">Password:</lable>
+                    <input type="password" class="popup-input">
+                    <button class="popup-button" type="submit"> Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="sign-in" class="popup">
+        <a href="#" class="popup-area"></a>
+        <div class="popup-body">
+            <div class="popup-content">
+                <a href="#" class="popup-close">X</a>
+                <form action="" name="sign_in" class="popup-sign-up">
+                    <lable class="popup-lable">Login:</lable>
+                    <input type="text" class="popup-input">
+                    <lable class="popup-lable">Password:</lable>
+                    <input type="password" class="popup-input">
+                    <button class="popup-button" type="submit">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="add-new" class="popup">
+        <a href="#" class="popup-area"></a>
+        <div class="popup-body">
+            <div class="popup-content">
+                <a href="#" class="popup-close">X</a>
+                <form action="" name="add_new" class="popup-sign-up">
+                    <lable class="popup-lable">Title:</lable>
+                    <input type="text" class="popup-input">
+                    <lable class="popup-lable">Description:</lable>
+                    <input type="password" class="popup-input">
+                    <lable class="popup-lable">Time period:</lable>
+                    <div class="date">
+                        <label class="popup-lable">From: </label>
+                        <select name="date_from" id="date_from" class="time"></select>
+                        <select name="time_from" id="time_from" class="time"></select>
+                    </div>
+                    <div class="date">
+                        <label class="popup-lable">Till: </label>
+                        <select name="date_till" id="date_till" class="time"></select>
+                        <select name="time_till" id="time_till" class="time"></select>
+                    </div>
+                    <lable class="popup-lable">Theme: </lable>
+                    <select name="theme" id="theme" class="theme-select"></select>
+                    <button class="popup-button" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="add-theme" class="popup">
+        <a href="#" class="popup-area"></a>
+        <div class="popup-body">
+            <div class="popup-content">
+                <a href="#" class="popup-close">X</a>
+                <form action="" name="add_theme" class="popup-sign-up">
+                    <lable class="popup-lable">Name for theme: </lable>
+                    <input type="text" class="popup-input">
+                    <lable class="popup-lable">Color: </lable>
+                    <input type="color" class="popup-input">
+                    <button class="popup-button" type="submit">Add theme</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>
