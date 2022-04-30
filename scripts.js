@@ -1,19 +1,20 @@
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
-let months = ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 date_from.min = new Date().toISOString().split("T")[0];
-//console.log(new Date().toISOString())
 date_till.min = new Date().toISOString().split("T")[0];
+date_from.onchange = ({target: { value} }) => {
+    date_till.setAttribute("min", value || new Date().toISOString().split("T")[0]);
+};
 
 let calendarHeader = document.getElementById("calendar-header");
-showMonthCalendar(currentMonth, currentYear);
+showMonthCalendar(currentMonth, currentYear, false);
 
 var Nowdate=new Date();  
 var WeekFirstDay=new Date(Nowdate-(Nowdate.getDay())*86400000);
 var WeekLastDay=new Date((WeekFirstDay/1000+6*86400)*1000);
-showWeekCalendar(WeekFirstDay, WeekLastDay);
-
+console.log(currentMonth);
 
 let menuBtn = document.querySelector('.menu-btn');
 let mobileAside = document.querySelector('.mobile-aside');
@@ -48,15 +49,16 @@ function previous() {
 }*/
 
 function showWeekCalendar(start, end){
-    /*console.log(start.toISOString());
-    calendarHeader.innerHTML = "";
+    console.log(start);
+    let tableHeader = start.getDate() + start.getMonth();
+    console.log(tableHeader); 
+    /*calendarHeader.innerHTML = "";
     console.log(start.toISOString().split("T")[0]);
     calendarHeader.innerHTML = start.toISOString().split("T")[0].split("-")[2];*/
 
     let tbl = document.getElementById("week-body");
-    console.log(tbl);
     tbl.innerHTML = "";
-    for(let i = 0; i< 23; i++){
+    for(let i = 0; i< 24; i++){
         let row = document.createElement("tr");
         let hourCell = document.createElement("td");
         hourCell.innerHTML = i + ':00';
@@ -64,6 +66,7 @@ function showWeekCalendar(start, end){
 
         for(let j = 0; j < 7; j++){
             let cell = document.createElement("td");
+            cell.classList.add("week-table-body-cell");
             row.appendChild(cell);
         }
         tbl.appendChild(row);
@@ -71,12 +74,17 @@ function showWeekCalendar(start, end){
     
 }
 
-function showMonthCalendar(month, year) {
+function showMonthCalendar(month, year, flag = false) {
 
     let firstDay = (new Date(year, month)).getDay();
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
-
-    let tbl = document.getElementById("calendar-body");
+    let tbl = null;
+    if (flag == true){
+        tbl = document.createElement("tbody");
+    }
+    else {
+        tbl = document.getElementById("calendar-body");
+    }
 
 
     tbl.innerHTML = "";
@@ -106,13 +114,25 @@ function showMonthCalendar(month, year) {
 
             else {
                 let cell = document.createElement("td");
-                let cellText = document.createTextNode(date);
-                //if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    //cell.classList.add("bg-info");
-                    //console.log(today.getDate());
-                    //console.log(date);
-                //} // color today's date
-                cell.appendChild(cellText);
+                cell.classList.add("month-td");
+                let cellContent = document.createElement("div");
+                cellContent.classList.add('calendar-cell');
+                let cellText = document.createElement('span');
+                cellText.innerHTML = date;
+                cellText.classList.add('cell-number');
+                cellContent.appendChild(cellText);
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                    cell.classList.add("calendar-event-td");
+                    cellContent.classList.add("calendar-event-cell");
+                    let eventName = document.createElement('span');
+                    eventName.innerHTML = 'Meeting';
+                    cellContent.appendChild(eventName);
+                    let time = document.createElement("span");
+                    time.innerHTML = '10:00 - 11:00';
+                    time.classList.add("event-time");
+                    cellContent.appendChild(time);
+                } // color today's date
+                cell.appendChild(cellContent);
                 row.appendChild(cell);
                 date++;
             }
@@ -122,7 +142,31 @@ function showMonthCalendar(month, year) {
 
         tbl.appendChild(row);
     }
+    return tbl;
 
+}
+
+function showYearCalendar(year) {
+    let yearTable = document.getElementById("year_table");
+    months.forEach(month => {
+        let monthContainer = document.createElement("div");
+        let monthName = document.createElement("span");
+        monthName.innerHTML = month;
+        monthName.classList.add("month-name");
+        monthContainer.appendChild(monthName);
+        let tableHead = document.getElementById("month_thead")
+        let tH = tableHead.cloneNode(true);
+        let monthInYearTable = document.createElement("table");
+        tH.classList.add("calendar-head");
+        monthInYearTable.appendChild(tH);
+        monthInYearTable.appendChild(showMonthCalendar(months.indexOf(month), year, true));
+        monthInYearTable.classList.add("month-in-year-table");
+        monthContainer.appendChild(monthInYearTable);
+        monthContainer.classList.add("month-container");
+        yearTable.appendChild(monthContainer);
+
+    })
+    calendarHeader.innerHTML = " " + year;
 }
 
 function onButtonClick(type) {
@@ -131,25 +175,32 @@ function onButtonClick(type) {
     const nonActive = "days-non-active";
     const weekTable = document.getElementById("week_table");
     const monthTable = document.getElementById("month_table");
+    const yearTable = document.getElementById("year_table");
 
     week.classList.remove(pressed);
     weekTable.classList.add(nonActive);
     month.classList.remove(pressed);
     monthTable.classList.add(nonActive);
     year.classList.remove(pressed);
+    yearTable.classList.add(nonActive);
+    yearTable.classList.remove("year-table");
 
     switch(type) {
         case "week":
             week.classList.add(pressed);
             weekTable.classList.remove(nonActive);
-            console.log("hjhgghgh")
+            showWeekCalendar(WeekFirstDay, WeekLastDay);
             break;
         case "month": 
             month.classList.add(pressed);
             monthTable.classList.remove(nonActive);
+            showMonthCalendar(currentMonth, currentYear, false);
             break;
         case "year":
             year.classList.add(pressed);
+            yearTable.classList.remove(nonActive);
+            yearTable.classList.add("year-table");
+            showYearCalendar(currentYear);
             break;
     }
     

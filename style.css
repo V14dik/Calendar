@@ -297,6 +297,24 @@ body {
   margin: 2px;
 }
 
+.theme-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  margin: 10px 5px;
+  background-color: #2B466F;
+  border-radius: 10px;
+}
+
+.second-theme{
+  background-color: #A6243C;
+}
+
+.theme-checkbox{
+  height: 20px;
+  width: 20px;
+}
+
 .add-theme-btn {
   border: 1px solid #363940;
   background-color: #f2e9d8;
@@ -306,6 +324,14 @@ body {
 
 .theme-select{
   height: 30px;
+}
+
+.theme-select option[value='Work'] {
+  background-color: #A6243C;
+}
+
+.opt{
+  background-color: #A6243C;
 }
 
 .add-theme-btn:hover {
@@ -356,7 +382,11 @@ body {
   height: 100%;
   width: 100%;
   overflow: auto;
-  display: block;
+}
+
+.week-body-container{
+  height: 100px;
+  overflow-y: scroll;
 }
 
 .time-svg{
@@ -379,14 +409,74 @@ th {
 }
 
 td {
-  text-align: right;
   background-color: #d9d0bf;
+}
+
+.month-td{
+  height: 50px;
+}
+
+.calendar-cell{
+  height: 100%;
+
+}
+
+.calendar-event-td{
+  background-color: #2B466F;
+}
+
+.calendar-event-cell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+}
+
+.event-time{
+  font-size: 1ex;
+}
+
+.cell-number{
+  font-size: 2ex;
+  align-self: flex-start;
+}
+
+.year-table{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  font-size: 8px;
+}
+
+.month-container{
+  width: 30%;
+  color: #000000;
+}
+
+.month-name{
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.month-in-year-table{
+  table-layout: fixed;
+  border-collapse: collapse;
+  color: #363940;
+  border-collapse: separate;
+  width: 100%;
 }
 
 .footer {
   display: flex;
   background-color: #363940;
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer-container {
@@ -639,5 +729,22 @@ td {
 
   .fixed-page {
     overflow: hidden; /*запрещаем прокручивание страницы при открытом меню*/
+  }
+
+  .calendar-event-cell{
+    font-size: 1ex;
+  }
+
+  .cell-number{
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .month-in-year-table{
+    width: 100%;
+  }
+
+  .month-container{
+    width: 45%;
   }
 }

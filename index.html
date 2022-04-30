@@ -64,6 +64,16 @@
                         <h4 class="themes-title">Themes</h4>
                         <button class="add-theme-btn" onclick="window.location.href = '#add-theme'">+</button>
                     </div>
+                    <div class="themes-container">
+                        <div class="theme-container">
+                            <h4 class="theme-title">Work</h4>
+                            <input class="theme-checkbox" type="checkbox">
+                        </div>
+                        <div class="theme-container second-theme">
+                            <h4 class="theme-title">Another</h4>
+                            <input class="theme-checkbox" type="checkbox">
+                        </div>
+                    </div>
                 </aside>
                 <div id="aside-container" class="mobile-aside-container">
                     <aside id="mobile-aside aside" class="mobile-aside">
@@ -79,6 +89,16 @@
                         <div class="themes">
                             <h4 class="themes-title">Themes</h4>
                             <button class="add-theme-btn" onclick="window.location.href='#add-theme'">+</button>
+                        </div>
+                        <div class="themes-container">
+                            <div class="theme-container">
+                                <h4 class="theme-title">Work</h4>
+                                <input class="theme-checkbox" type="checkbox">
+                            </div>
+                            <div class="theme-container second-theme">
+                                <h4 class="theme-title">Another</h4>
+                                <input class="theme-checkbox" type="checkbox">
+                            </div>
                         </div>
                     </aside>
                 </div>
@@ -105,15 +125,16 @@
                                     <th>Sat</th>
                                 </tr>
                             </thead>
-
-                            <tbody class="week-table-body" id="week-body">
-                            </tbody>
+                            <div class="week-body-container">
+                                <tbody class="week-table-body" id="week-body">
+                                </tbody>
+                            </div>
 
                         </table>
                     </div>
                     <div id="month_table" class="days">
                         <table class="calendar-table" id="calendar">
-                            <thead class="calendar-head">
+                            <thead id="month_thead" class="calendar-head">
                             <tr>
                                 
                                 <th>Sun</th>
@@ -130,6 +151,9 @@
                                 
                             </tbody>
                         </table>
+                    </div>
+                    <div id="year_table" class="days days-non-active">
+                        
                     </div>
                 </div>
             </div>
@@ -197,7 +221,10 @@
                         <input type="time" class="time" id="time_till" name="time_till">
                     </div>
                     <lable class="popup-lable">Theme: </lable>
-                    <select name="theme" id="theme" class="theme-select"></select>
+                    <select name="theme" id="theme" class="theme-select">
+                        <option class="opt" value="Work">Work</option>
+                        <option value="Another">Another</option>
+                    </select>
                     <button class="popup-button" type="submit">Add</button>
                 </form>
             </div>
