@@ -379,14 +379,24 @@ body {
 }
 
 .week-table-body{
+  display: block;
   height: 100%;
-  width: 100%;
   overflow: auto;
 }
 
+.week-tr{
+  display: grid;
+  grid-auto-rows: 60px;
+  grid-template-columns: repeat(8, 2fr);
+}
+
+.week-td{
+  margin: 1px;
+}
+
 .week-body-container{
-  height: 100px;
-  overflow-y: scroll;
+  height:20px; 
+  overflow:auto;
 }
 
 .time-svg{
@@ -475,7 +485,7 @@ td {
   display: flex;
   background-color: #363940;
   width: 100%;
-  position: absolute;
+  position: sticky;
   bottom: 0;
 }
 
