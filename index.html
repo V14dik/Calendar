@@ -55,7 +55,7 @@
             </div>
 
         </header>
-        <main class="main">
+        <main class="main fixed-page">
             <div class="main-container">
                 <aside id="aside" class="aside">
                     <a class="aside-button" href = '#add-new'>Add new</a>
@@ -67,11 +67,11 @@
                     <div class="themes-container">
                         <div class="theme-container">
                             <h4 class="theme-title">Work</h4>
-                            <input class="theme-checkbox" type="checkbox">
+                            <input id="first_theme" class="theme-checkbox" type="checkbox">
                         </div>
                         <div class="theme-container second-theme">
                             <h4 class="theme-title">Another</h4>
-                            <input class="theme-checkbox" type="checkbox">
+                            <input id="second_theme" class="theme-checkbox" type="checkbox">
                         </div>
                     </div>
                 </aside>
@@ -93,11 +93,11 @@
                         <div class="themes-container">
                             <div class="theme-container">
                                 <h4 class="theme-title">Work</h4>
-                                <input class="theme-checkbox" type="checkbox">
+                                <input id="first_theme_" class="theme-checkbox" type="checkbox">
                             </div>
                             <div class="theme-container second-theme">
                                 <h4 class="theme-title">Another</h4>
-                                <input class="theme-checkbox" type="checkbox">
+                                <input id="second_theme" class="theme-checkbox" type="checkbox">
                             </div>
                         </div>
                     </aside>
@@ -171,12 +171,12 @@
             <div class="popup-content">
                 <a href="#" class="popup-close">X</a>
                 <form action="" name="sign_up" class="popup-form">
-                    <lable class="popup-lable">Name:</lable>
-                    <input class="popup-input" type="text">
-                    <lable class="popup-lable">Login:</lable>
-                    <input type="text" class="popup-input">
-                    <lable class="popup-lable">Password:</lable>
-                    <input type="password" class="popup-input">
+                    <lable for="reg_name" class="popup-lable">Name:</lable>
+                    <input id="reg_name" class="popup-input" type="text">
+                    <lable for="reg_login" class="popup-lable">Login:</lable>
+                    <input id="reg_login" type="text" class="popup-input">
+                    <lable for="reg_password" class="popup-lable">Password:</lable>
+                    <input id="reg_password" type="password" class="popup-input">
                     <button class="popup-button" type="submit"> Sign up</button>
                 </form>
             </div>
@@ -188,10 +188,10 @@
             <div class="popup-content">
                 <a href="#" class="popup-close">X</a>
                 <form action="" name="sign_in" class="popup-form">
-                    <lable class="popup-lable">Login:</lable>
-                    <input type="text" class="popup-input">
-                    <lable class="popup-lable">Password:</lable>
-                    <input type="password" class="popup-input">
+                    <lable for="enter_login" class="popup-lable">Login:</lable>
+                    <input id="enter_login" type="text" class="popup-input">
+                    <lable for="enter_password" class="popup-lable">Password:</lable>
+                    <input id="enter_password" type="password" class="popup-input">
                     <button class="popup-button" type="submit"> Sign in</button>
                 </form>
             </div>
@@ -203,10 +203,10 @@
             <div class="popup-content">
                 <a href="#" class="popup-close">X</a>
                 <form action="" name="add_new" class="popup-form">
-                    <lable class="popup-lable">Title:</lable>
-                    <input type="text" class="popup-input">
-                    <lable class="popup-lable">Description:</lable>
-                    <input type="text" class="popup-input">
+                    <lable for="event_name" class="popup-lable">Title:</lable>
+                    <input id="event_name" type="text" class="popup-input">
+                    <lable for="event_description" class="popup-lable">Description:</lable>
+                    <input id="event_description" type="text" class="popup-input">
                     <lable class="popup-lable">Time period:</lable>
                     <div class="date">
                         <label class="popup-lable">From: </label>
@@ -235,9 +235,9 @@
                 <a href="#" class="popup-close">X</a>
                 <form action="" name="add_theme" class="popup-form">
                     <lable class="popup-lable">Name for theme: </lable>
-                    <input type="text" class="popup-input">
+                    <input id="new_theme_name" type="text" class="popup-input">
                     <lable class="popup-lable">Color: </lable>
-                    <input type="color" class="popup-input">
+                    <input id="new_theme_color" type="color" class="popup-input">
                     <button class="popup-button" type="submit">Add theme</button>
                 </form>
             </div>

@@ -1,7 +1,7 @@
-let today = new Date();
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
-let months = [
+const today = new Date();
+const currentMonth = today.getMonth();
+const currentYear = today.getFullYear();
+const months = [
   "January",
   "February",
   "March",
@@ -24,20 +24,19 @@ date_from.onchange = ({ target: { value } }) => {
   );
 };
 
-let calendarHeader = document.getElementById("calendar-header");
+const calendarHeader = document.getElementById("calendar-header");
 showMonthCalendar(currentMonth, currentYear, false);
 
 const Nowdate = new Date();
 const WeekFirstDay = new Date(Nowdate - Nowdate.getDay() * 86400000);
 const WeekLastDay = new Date((WeekFirstDay / 1000 + 6 * 86400) * 1000);
-console.log(currentMonth);
 
-let menuBtn = document.querySelector(".menu-btn");
-let mobileAside = document.querySelector(".mobile-aside");
-let calendarContainer = document.querySelector(".calendar-container");
-let calendarTable = document.querySelector(".calendar-table");
-let calendarBody = document.querySelector(".calendar-body");
-let mobileAsideContainer = document.querySelector(".mobile-aside-container");
+const menuBtn = document.querySelector(".menu-btn");
+const mobileAside = document.querySelector(".mobile-aside");
+const calendarContainer = document.querySelector(".calendar-container");
+const calendarTable = document.querySelector(".calendar-table");
+const calendarBody = document.querySelector(".calendar-body");
+const mobileAsideContainer = document.querySelector(".mobile-aside-container");
 
 menuBtn.addEventListener("click", function () {
   menuBtn.classList.toggle("active");
@@ -57,14 +56,7 @@ function previous() {
   showMonthCalendar(currentMonth, currentYear);
 }
 
-/*function jump() {
-    currentYear = parseInt(selectYear.value);
-    currentMonth = parseInt(selectMonth.value);
-    showMonthCalendar(currentMonth, currentYear);
-}*/
-
 function showWeekCalendar(start, end) {
-  let tableHeader = start.getDate() + start.getMonth();
   calendarHeader.innerHTML =
     start.getDate() +
     "." +
@@ -73,22 +65,18 @@ function showWeekCalendar(start, end) {
     end.getDate() +
     "." +
     end.getMonth();
-  /*calendarHeader.innerHTML = "";
-    console.log(start.toISOString().split("T")[0]);
-    calendarHeader.innerHTML = start.toISOString().split("T")[0].split("-")[2];*/
-
-  let tbl = document.getElementById("week-body");
+  const tbl = document.getElementById("week-body");
   tbl.innerHTML = "";
   for (let i = 0; i < 24; i++) {
-    let row = document.createElement("tr");
+    const row = document.createElement("tr");
     row.classList.add("week-tr");
-    let hourCell = document.createElement("td");
+    const hourCell = document.createElement("td");
     hourCell.classList.add("week-td");
     hourCell.innerHTML = i + ":00";
     row.appendChild(hourCell);
 
     for (let j = 0; j < 7; j++) {
-      let cell = document.createElement("td");
+      const cell = document.createElement("td");
       cell.classList.add("week-table-body-cell");
       cell.classList.add("week-td");
       row.appendChild(cell);
@@ -98,8 +86,8 @@ function showWeekCalendar(start, end) {
 }
 
 function showMonthCalendar(month, year, flag = false) {
-  let firstDay = new Date(year, month).getDay();
-  let daysInMonth = 32 - new Date(year, month, 32).getDate();
+  const firstDay = new Date(year, month).getDay();
+  const daysInMonth = 32 - new Date(year, month, 32).getDate();
   let tbl = null;
   if (flag == true) {
     tbl = document.createElement("tbody");
@@ -114,25 +102,25 @@ function showMonthCalendar(month, year, flag = false) {
     if (date > daysInMonth) {
       break;
     }
-    let row = document.createElement("tr");
+    const row = document.createElement("tr");
 
     for (let j = 0; j < 7; j++) {
       if (i === 0 && j < firstDay) {
-        let cell = document.createElement("td");
-        let cellText = document.createTextNode("");
+        const cell = document.createElement("td");
+        const cellText = document.createTextNode("");
         cell.appendChild(cellText);
         row.appendChild(cell);
       } else if (date > daysInMonth) {
-        let cell = document.createElement("td");
-        let cellText = document.createTextNode("");
+        const cell = document.createElement("td");
+        const cellText = document.createTextNode("");
         cell.appendChild(cellText);
         row.appendChild(cell);
       } else {
-        let cell = document.createElement("td");
+        const cell = document.createElement("td");
         cell.classList.add("month-td");
-        let cellContent = document.createElement("div");
+        const cellContent = document.createElement("div");
         cellContent.classList.add("calendar-cell");
-        let cellText = document.createElement("span");
+        const cellText = document.createElement("span");
         cellText.innerHTML = date;
         cellText.classList.add("cell-number");
         cellContent.appendChild(cellText);
@@ -143,10 +131,10 @@ function showMonthCalendar(month, year, flag = false) {
         ) {
           cell.classList.add("calendar-event-td");
           cellContent.classList.add("calendar-event-cell");
-          let eventName = document.createElement("span");
+          const eventName = document.createElement("span");
           eventName.innerHTML = "Meeting";
           cellContent.appendChild(eventName);
-          let time = document.createElement("span");
+          const time = document.createElement("span");
           time.innerHTML = "10:00 - 11:00";
           time.classList.add("event-time");
           cellContent.appendChild(time);
@@ -163,16 +151,16 @@ function showMonthCalendar(month, year, flag = false) {
 }
 
 function showYearCalendar(year) {
-  let yearTable = document.getElementById("year_table");
+  const yearTable = document.getElementById("year_table");
   months.forEach((month) => {
-    let monthContainer = document.createElement("div");
-    let monthName = document.createElement("span");
+    const monthContainer = document.createElement("div");
+    const monthName = document.createElement("span");
     monthName.innerHTML = month;
     monthName.classList.add("month-name");
     monthContainer.appendChild(monthName);
-    let tableHead = document.getElementById("month_thead");
-    let tH = tableHead.cloneNode(true);
-    let monthInYearTable = document.createElement("table");
+    const tableHead = document.getElementById("month_thead");
+    const tH = tableHead.cloneNode(true);
+    const monthInYearTable = document.createElement("table");
     tH.classList.add("calendar-head");
     monthInYearTable.appendChild(tH);
     monthInYearTable.appendChild(
