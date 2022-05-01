@@ -57,14 +57,30 @@ function previous() {
 }
 
 function showWeekCalendar(start, end) {
+  let dayStartWeek = start.getDate();
+  let monthStartWeek = start.getMonth();
+  let dayEndWeek = end.getDate();
+  let monthEndWeek = end.getMonth();
+  if (dayStartWeek < 10) {
+    dayStartWeek = "0" + dayStartWeek;
+  }
+  if (monthStartWeek < 10) {
+    monthStartWeek = "0" + monthStartWeek;
+  }
+  if (dayEndWeek < 10) {
+    dayEndWeek = "0" + dayEndWeek;
+  }
+  if (monthEndWeek < 10) {
+    monthEndWeek = "0" + monthEndWeek;
+  }
   calendarHeader.innerHTML =
-    start.getDate() +
+    dayStartWeek +
     "." +
-    start.getMonth() +
+    monthStartWeek +
     " - " +
-    end.getDate() +
+    dayEndWeek +
     "." +
-    end.getMonth();
+    monthEndWeek;
   const tbl = document.getElementById("week-body");
   tbl.innerHTML = "";
   for (let i = 0; i < 24; i++) {
