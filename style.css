@@ -173,6 +173,7 @@ body {
   border: 2px solid #d9d0bf;
   color: #d9d0bf;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .nav-button:hover {
