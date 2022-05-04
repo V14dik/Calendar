@@ -1,6 +1,6 @@
 const today = new Date();
-const currentMonth = today.getMonth();
-const currentYear = today.getFullYear();
+let currentMonth = today.getMonth();
+let currentYear = today.getFullYear();
 const months = [
   "January",
   "February",
@@ -73,14 +73,8 @@ function showWeekCalendar(start, end) {
   if (monthEndWeek < 10) {
     monthEndWeek = "0" + monthEndWeek;
   }
-  calendarHeader.innerHTML =
-    dayStartWeek +
-    "." +
-    monthStartWeek +
-    " - " +
-    dayEndWeek +
-    "." +
-    monthEndWeek;
+
+  calendarHeader.innerHTML = `${dayStartWeek}.${monthStartWeek}-${dayEndWeek}.${monthEndWeek}`;
   const tbl = document.getElementById("week-body");
   tbl.innerHTML = "";
   for (let i = 0; i < 24; i++) {
@@ -119,6 +113,7 @@ function showMonthCalendar(month, year, flag = false) {
       break;
     }
     const row = document.createElement("tr");
+    row.classList.add("month-tr");
 
     for (let j = 0; j < 7; j++) {
       if (i === 0 && j < firstDay) {
