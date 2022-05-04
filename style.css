@@ -429,6 +429,10 @@ td {
   height: calc(100% / 6);
 }
 
+.month-td{
+  height: 50px;
+}
+
 .calendar-cell{
   height: 100%;
 

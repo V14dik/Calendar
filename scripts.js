@@ -113,7 +113,10 @@ function showMonthCalendar(month, year, flag = false) {
       break;
     }
     const row = document.createElement("tr");
-    row.classList.add("month-tr");
+    if (flag == true) {
+    } else {
+      row.classList.add("month-tr");
+    }
 
     for (let j = 0; j < 7; j++) {
       if (i === 0 && j < firstDay) {
@@ -171,6 +174,7 @@ function showYearCalendar(year) {
     monthContainer.appendChild(monthName);
     const tableHead = document.getElementById("month_thead");
     const tH = tableHead.cloneNode(true);
+    tH.setAttribute("id", `${month}_thead`);
     const monthInYearTable = document.createElement("table");
     tH.classList.add("calendar-head");
     monthInYearTable.appendChild(tH);
