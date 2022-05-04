@@ -99,7 +99,7 @@ function showMonthCalendar(month, year, flag = false) {
   const firstDay = new Date(year, month).getDay();
   const daysInMonth = 32 - new Date(year, month, 32).getDate();
   let tbl = null;
-  if (flag == true) {
+  if (flag === true) {
     tbl = document.createElement("tbody");
   } else {
     tbl = document.getElementById("calendar-body");
@@ -113,7 +113,7 @@ function showMonthCalendar(month, year, flag = false) {
       break;
     }
     const row = document.createElement("tr");
-    if (flag == true) {
+    if (flag === true) {
     } else {
       row.classList.add("month-tr");
     }
