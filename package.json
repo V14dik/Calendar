@@ -1,0 +1,26 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "description": "itirod labs",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V14dik/Calendar.git"
+  },
+  "keywords": [
+    "js",
+    "labs",
+    "itirod",
+    "calendar"
+  ],
+  "author": "V14dik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/V14dik/Calendar/issues"
+  },
+  "homepage": "https://github.com/V14dik/Calendar#readme"
+}
