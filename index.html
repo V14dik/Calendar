@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css"/>
+    <!-- <link rel="stylesheet" href="./style.css"/> -->
     <title>Calendar</title>
 </head>
 <body>
@@ -171,13 +171,11 @@
             <div class="popup-content">
                 <a href="#" class="popup-close">X</a>
                 <form action="" name="sign_up" class="popup-form">
-                    <lable for="reg_name" class="popup-lable">Name:</lable>
-                    <input id="reg_name" class="popup-input" type="text">
-                    <lable for="reg_login" class="popup-lable">Login:</lable>
-                    <input id="reg_login" type="text" class="popup-input">
+                    <lable for="reg_login" class="popup-lable">E-mail:</lable>
+                    <input id="reg_login" type="email" class="popup-input">
                     <lable for="reg_password" class="popup-lable">Password:</lable>
                     <input id="reg_password" type="password" class="popup-input">
-                    <button class="popup-button" type="submit"> Sign up</button>
+                    <button class="popup-button" type="submit" id="sign_up_button"> Sign up</button>
                 </form>
             </div>
         </div>
@@ -188,11 +186,11 @@
             <div class="popup-content">
                 <a href="#" class="popup-close">X</a>
                 <form action="" name="sign_in" class="popup-form">
-                    <lable for="enter_login" class="popup-lable">Login:</lable>
-                    <input id="enter_login" type="text" class="popup-input">
+                    <lable for="enter_login" class="popup-lable">E-mail:</lable>
+                    <input id="enter_login" type="email" class="popup-input">
                     <lable for="enter_password" class="popup-lable">Password:</lable>
                     <input id="enter_password" type="password" class="popup-input">
-                    <button class="popup-button" type="submit"> Sign in</button>
+                    <button class="popup-button" type="submit" id="sign_in_button"> Sign in</button>
                 </form>
             </div>
         </div>
@@ -243,6 +241,6 @@
             </div>
         </div>
     </div>
-    <script src="scripts.js"></script>
+    <!-- <script src="scripts.js"></script> -->
 </body>
 </html>

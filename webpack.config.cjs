@@ -10,7 +10,7 @@ module.exports = {
     assetModuleFilename: "src/assets/svg/[name][ext]",
   },
   devServer: {
-    port: 3000,
+    port: 8080,
   },
   plugins: [
     new HTMLPlugin({

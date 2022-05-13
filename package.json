@@ -2,10 +2,10 @@
   "name": "calendar",
   "version": "1.0.0",
   "description": "itirod labs",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production" 
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,19 @@
   "bugs": {
     "url": "https://github.com/V14dik/Calendar/issues"
   },
-  "homepage": "https://github.com/V14dik/Calendar#readme"
+  "homepage": "https://github.com/V14dik/Calendar#readme",
+  "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "firebase": "^9.8.1",
+    "html-webpack-plugin": "^5.5.0",
+    "html-withimg-loader": "^0.1.16",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^4.9.0"
+  }
 }

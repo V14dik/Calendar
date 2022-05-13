@@ -178,3 +178,5 @@ Next.js
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node
+
+token.js

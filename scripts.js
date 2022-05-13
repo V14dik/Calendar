@@ -44,17 +44,17 @@ menuBtn.addEventListener("click", function () {
   mobileAside.classList.toggle("mobile-aside-active");
 });
 
-function next() {
+window.next = function () {
   currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
   currentMonth = (currentMonth + 1) % 12;
   showMonthCalendar(currentMonth, currentYear);
-}
+};
 
-function previous() {
+window.previous = function () {
   currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
   currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
   showMonthCalendar(currentMonth, currentYear);
-}
+};
 
 function showWeekCalendar(start, end) {
   let dayStartWeek = start.getDate();
@@ -189,7 +189,7 @@ function showYearCalendar(year) {
   calendarHeader.innerHTML = " " + year;
 }
 
-function onButtonClick(type) {
+window.onButtonClick = function (type) {
   const [week, month, year] = document.querySelectorAll(".nav-button");
   const pressed = "nav-button--pressed";
   const nonActive = "days-non-active";
@@ -224,4 +224,4 @@ function onButtonClick(type) {
       showYearCalendar(currentYear);
       break;
   }
-}
+};
