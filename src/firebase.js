@@ -1,11 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+const { apiKey } = require("./token");
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAQw3Peh-1ADgE_F7eb94Vbpe4OyEvGUQ4",
+  apiKey: apiKey,
   authDomain: "calendar-57a3d.firebaseapp.com",
   projectId: "calendar-57a3d",
   storageBucket: "calendar-57a3d.appspot.com",
