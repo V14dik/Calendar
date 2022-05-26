@@ -31,9 +31,7 @@ onAuthStateChanged(auth, (user) => {
   const exitButton = document.getElementById("exit_button");
   const asideSignInButton = document.getElementById("asid_sign_up");
   if (user) {
-    if (localStorage.getItem("key") !== null) {
-      const uid = user.uid;
-      localStorage.setItem("UID", uid);
+    if (localStorage.getItem("UID") !== null) {
       signInButton.classList.add("button-not-active");
       signUpButton.classList.add("button-not-active");
       exitButton.classList.remove("button-not-active");
@@ -78,6 +76,12 @@ window.enter = async function () {
       emailLoginInput.value,
       passwordLoginInput.value
     );
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        localStorage.setItem("UID", uid);
+      }
+    });
     emailLoginInput.value = "";
     passwordLoginInput.value = "";
     //window.history.back();
