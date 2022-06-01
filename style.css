@@ -343,6 +343,7 @@ body {
   text-decoration: none;
   color:#363940;
   text-align: center;
+  line-height: initial;
 }
 
 .theme-select{
@@ -446,7 +447,10 @@ td {
 }
 
 .calendar-cell{
+  color: #000000;
   height: 100%;
+  display: flex;
+  text-decoration: none;
 
 }
 
@@ -455,6 +459,7 @@ td {
 }
 
 .calendar-event-cell{
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;

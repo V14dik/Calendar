@@ -18,6 +18,7 @@ const months = [
 export function showYearCalendar(year) {
   const calendarHeader = document.getElementById("year-calendar-header");
   const yearTable = document.getElementById("year_table");
+  yearTable.innerHTML = "";
   months.forEach((month) => {
     const monthContainer = document.createElement("div");
     const monthName = document.createElement("span");
@@ -41,5 +42,5 @@ export function showYearCalendar(year) {
   });
   calendarHeader.innerHTML = " " + year;
   const deleteTable = document.getElementById("delete-table");
-  deleteTable.remove();
+  deleteTable.style.display = "none";
 }

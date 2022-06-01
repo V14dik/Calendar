@@ -3,12 +3,12 @@
     <div class="popup-body">
         <div class="popup-content">
             <a href="/" class="popup-close">X</a>
-            <form action="" name="add_theme" class="popup-form">
+            <form onsubmit="return false;" name="add_theme" class="popup-form">
                 <lable class="popup-lable">Name for theme: </lable>
                 <input id="new_theme_name" type="text" class="popup-input">
                 <lable class="popup-lable">Color: </lable>
                 <input id="new_theme_color" type="color" class="popup-input">
-                <button class="popup-button" type="submit">Add theme</button>
+                <button class="popup-button" onclick="addThemeToDB()" type="submit">Add theme</button>
             </form>
         </div>
     </div>

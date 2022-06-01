@@ -3,28 +3,24 @@
     <div class="popup-body">
         <div class="popup-content">
             <a href="/" class="popup-close">X</a>
-            <form action="" name="add_new" class="popup-form">
+            <form onsubmit="return false;" name="add_new" class="popup-form">
                 <lable for="event_name" class="popup-lable">Title:</lable>
                 <input id="event_name" type="text" class="popup-input">
-                <lable for="event_description" class="popup-lable">Description:</lable>
-                <input id="event_description" type="text" class="popup-input">
                 <lable class="popup-lable">Time period:</lable>
+                <input type="date" class="time" name="date_from" id="date_from">
                 <div class="date">
                     <label class="popup-lable">From: </label>
-                    <input type="date" class="time" name="date_from" id="date_from">
                     <input type="time" id="time_from" class="time" name="time_from">
                 </div>
                 <div class="date">
                     <label class="popup-lable">Till: </label>
-                    <input type="date" class="time" name="date_till" id="date_till">
                     <input type="time" class="time" id="time_till" name="time_till">
                 </div>
                 <lable class="popup-lable">Theme: </lable>
                 <select name="theme" id="theme" class="theme-select">
-                    <option class="opt" value="Work">Work</option>
-                    <option value="Another">Another</option>
+                    
                 </select>
-                <button class="popup-button" type="submit">Add</button>
+                <button class="popup-button" onclick="addEventToDB()" type="submit">Save</button>
             </form>
         </div>
     </div>

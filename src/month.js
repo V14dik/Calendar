@@ -1,6 +1,4 @@
 const today = new Date();
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
 const months = [
   "January",
   "February",
@@ -16,7 +14,25 @@ const months = [
   "December",
 ];
 
+function formatDate(date) {
+  let dd = date.getDate();
+  if (dd < 10) dd = "0" + dd;
+
+  let mm = date.getMonth() + 1;
+  if (mm < 10) mm = "0" + mm;
+
+  let yy = date.getFullYear();
+  if (yy < 10) yy = "0" + yy;
+  return yy + "-" + mm + "-" + dd;
+}
+
 export function showMonthCalendar(month, year, flag = false) {
+  let events = [];
+  let themes = [];
+  try {
+    events = JSON.parse(localStorage.getItem("events"));
+    themes = JSON.parse(localStorage.getItem("themes"));
+  } catch {}
   const calendarHeader = document.getElementById("calendar-header");
   const firstDay = new Date(year, month).getDay();
   const daysInMonth = 32 - new Date(year, month, 32).getDate();
@@ -56,27 +72,35 @@ export function showMonthCalendar(month, year, flag = false) {
       } else {
         const cell = document.createElement("td");
         cell.classList.add("month-td");
-        const cellContent = document.createElement("div");
+        const cellContent = document.createElement("a");
+        cellContent.href = "/add-new";
+        cellContent.addEventListener("click", route);
         cellContent.classList.add("calendar-cell");
         const cellText = document.createElement("span");
         cellText.innerHTML = date;
         cellText.classList.add("cell-number");
         cellContent.appendChild(cellText);
-        if (
-          date === today.getDate() &&
-          year === today.getFullYear() &&
-          month === today.getMonth()
-        ) {
-          cell.classList.add("calendar-event-td");
-          cellContent.classList.add("calendar-event-cell");
-          const eventName = document.createElement("span");
-          eventName.innerHTML = "Meeting";
-          cellContent.appendChild(eventName);
-          const time = document.createElement("span");
-          time.innerHTML = "10:00 - 11:00";
-          time.classList.add("event-time");
-          cellContent.appendChild(time);
-        } // color today's date
+        let day = formatDate(new Date(year, month, date));
+        if (localStorage.getItem("UID")) {
+          events.forEach((event) => {
+            if (event.day === day) {
+              cell.classList.add("calendar-event-td");
+              cellContent.classList.add("calendar-event-cell");
+              const eventName = document.createElement("span");
+              eventName.innerHTML = event.name;
+              cellContent.appendChild(eventName);
+              const time = document.createElement("span");
+              time.innerHTML = `${event.timeFrom} - ${event.timeTill}`;
+              time.classList.add("event-time");
+              cellContent.appendChild(time);
+              themes.forEach((theme) => {
+                if (theme.name === event.theme) {
+                  cell.style.backgroundColor = theme.color;
+                }
+              });
+            }
+          });
+        }
         cell.appendChild(cellContent);
         row.appendChild(cell);
         date++;
