@@ -166,7 +166,7 @@ body {
 }
 
 .nav-button {
-  height: 30px;
+  height: 34px;
   width: 60px;
   font-family: Inter;
   background-color: #363940;
@@ -174,6 +174,9 @@ body {
   color: #d9d0bf;
   font-size: 15px;
   cursor: pointer;
+  margin: auto;
+  padding: 4px;
+  text-decoration: none;
 }
 
 .nav-button:hover {
@@ -213,6 +216,14 @@ body {
 
 .enter-button:hover {
   color: #ffffff;
+}
+
+.exit-button{
+  height: 34.5px;
+}
+
+.button-not-active{
+  display: none;
 }
 
 .header-logo {
@@ -259,6 +270,8 @@ body {
   padding-top: 30px;
   width: 20%;
   background-color: #d9d0bf;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-aside {
@@ -268,11 +281,15 @@ body {
   display: none;
 }
 
+.buttons-container{
+  display: flex;
+  flex-direction: column;
+}
+
 .aside-button {
   color: #363940;
   text-decoration: none;
   text-align: center;
-  display: inline-block;
   padding: 12px 0;
   width: 98%;
   font-family: Inter;
@@ -323,18 +340,14 @@ body {
   background-color: #f2e9d8;
   width: 25px;
   height: 25px;
+  text-decoration: none;
+  color:#363940;
+  text-align: center;
+  line-height: initial;
 }
 
 .theme-select{
   height: 30px;
-}
-
-.theme-select option[value='Work'] {
-  background-color: #A6243C;
-}
-
-.opt{
-  background-color: #A6243C;
 }
 
 .add-theme-btn:hover {
@@ -434,7 +447,10 @@ td {
 }
 
 .calendar-cell{
+  color: #000000;
   height: 100%;
+  display: flex;
+  text-decoration: none;
 
 }
 
@@ -443,6 +459,7 @@ td {
 }
 
 .calendar-event-cell{
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -523,8 +540,6 @@ td {
   background-color: rgb(0, 0, 0, 0.8);
   top: 0;
   left: 0;
-  opacity: 0;
-  visibility: hidden;
   overflow-y: auto;
   overflow-x: hidden;
   transition: all 0.5s ease 0s;
@@ -683,6 +698,10 @@ td {
     min-width: 80%;
   }
 
+  .aside-button{
+    height: 50.5px;
+  }
+
   /* Гамбургер иконка */
   .menu-btn {
     display: block;
@@ -760,5 +779,9 @@ td {
 
   .month-container{
     width: 45%;
+  }
+
+  .week-td{
+    font-size: 17px;
   }
 }
